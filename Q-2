@@ -1,0 +1,33 @@
+# Program to find minimum number of platforms required on a railway station
+def findPlatform(arr, dep, n):
+
+
+    flag = 1
+    res = 1
+
+    for i in range(n):
+        flag = 1
+ 
+        for j in range(n):
+            if i != j:
+                if (arr[i] >= arr[j] and dep[j] >= arr[i]):
+                    flag += 1
+        res = max(result, flag)
+ 
+    return res
+ 
+
+ 
+ 
+def main():
+    arr = list(map(int, input().strip().split()))
+    dep = list(map(int, input().strip().split()))
+ 
+    n = len(arr)
+ 
+    print("{}".format(
+        findPlatform(arr, dep, n)))
+ 
+ 
+if _name_ == '_main_':
+    main()
